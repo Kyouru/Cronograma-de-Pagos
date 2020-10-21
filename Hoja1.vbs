@@ -14,46 +14,50 @@ Private Sub btAjustar_Click()
     Set objetivo = Me.Range("OBJETIVO")
     Set monto = Me.Range("MONTO")
     Set ncuotas = Me.Range("NCUOTAS")
-    
+        
     If objetivo <> 0 Then
-        arreglo = 0
-        
-        'cuota = Round(monto / (ncuotas + [CUOTAADICIONAL]), 2)
-        cuota = Round(([PAGO_SIN_FIJAR] + monto) / (ncuotas + [CUOTAADICIONAL] + [PGRACIA] - [areaFija]), 2)
-        
-        ajuste = 1
-        'For i = 2 To Len(CStr(Round(monto, 0)))
-        For i = 2 To Len(CStr(Round(Abs(objetivo), 0)))
-            ajuste = ajuste * 10
-        Next i
-        If objetivo < 0 Then
-            Do While ajuste > 0
-                Do While objetivo <= 0 And cuota >= 0
-                    anterior = cuota
-                    cuota = cuota - ajuste
+        If [TOTALCUOTAS] - [areaFija] - [areaFija2] = 1 Then
+            cuota = cuota + objetivo
+        Else
+            arreglo = 0
+            
+            'cuota = Round(monto / (ncuotas + [CUOTAADICIONAL]), 2)
+            cuota = Round(monto / (ncuotas), 2)
+            
+            ajuste = 1
+            'For i = 2 To Len(CStr(Round(monto, 0)))
+            For i = 2 To Len(CStr(Round(Abs(objetivo), 0)))
+                ajuste = ajuste * 10
+            Next i
+            If objetivo < 0 Then
+                Do While ajuste > 0
+                    Do While objetivo <= 0 And cuota >= 0
+                        anterior = cuota
+                        cuota = cuota - ajuste
+                    Loop
+                    cuota = anterior
+                    ajuste = Round(ajuste / 10, 2)
                 Loop
-                cuota = anterior
-                ajuste = Round(ajuste / 10, 2)
-            Loop
-        End If
-        If objetivo > 0 Then
-            Do While ajuste > 0
-                Dim countLimit As Integer
-                countLimit = 0
-                Do While objetivo >= 0 And cuota >= 0 And countLimit < limite
-                    anterior = cuota
-                    cuota = cuota + ajuste
-                    countLimit = countLimit + 1
+            End If
+            If objetivo > 0 Then
+                Do While ajuste > 0
+                    Dim countLimit As Integer
+                    countLimit = 0
+                    Do While objetivo >= 0 And cuota >= 0 And countLimit < limite
+                        anterior = cuota
+                        cuota = cuota + ajuste
+                        countLimit = countLimit + 1
+                    Loop
+                    If countLimit >= limite Then
+                        MsgBox "Error Loop"
+                        Exit Sub
+                    End If
+                    cuota = anterior
+                    ajuste = Round(ajuste / 10, 2)
                 Loop
-                If countLimit >= limite Then
-                    MsgBox "Error Loop"
-                    Exit Sub
+                If objetivo <> 0 Then
+                    cuota = cuota + 0.01
                 End If
-                cuota = anterior
-                ajuste = Round(ajuste / 10, 2)
-            Loop
-            If objetivo <> 0 Then
-                cuota = cuota + 0.01
             End If
         End If
     End If
@@ -63,5 +67,13 @@ Private Sub btAjustar_Click()
 End Sub
 
 Private Sub btnLimpiar_Click()
-    Range("A" & Me.Range("InicioLimpiar").Row & ":C2000").ClearContents
+    Range(Cells(Me.Range("InicioLimpiar").Row, Me.Range("InicioLimpiar").Column), Cells(2000, Me.Range("FinLimpiar").Column)).ClearContents
+End Sub
+
+Private Sub cbUltimoDia_Change()
+    If cbUltimoDia.Value Then
+        Hoja1.Range("ULTIMODIA").Value = "1"
+    Else
+        Hoja1.Range("ULTIMODIA").Value = "0"
+    End If
 End Sub
