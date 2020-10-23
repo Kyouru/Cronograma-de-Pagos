@@ -12,17 +12,19 @@ Private Sub btAjustar_Click()
     Set arreglo = Me.Range("ARREGLO")
     Set cuota = Me.Range("CUOTA")
     Set objetivo = Me.Range("OBJETIVO")
+    Set objetivo2 = Me.Range("OBJETIVO2")
     Set monto = Me.Range("MONTO")
     Set ncuotas = Me.Range("NCUOTAS")
         
     If objetivo <> 0 Then
+        arreglo = 0
         If [TOTALCUOTAS] - [areaFija] - [areaFija2] = 1 Then
-            cuota = cuota + objetivo
+            cuota = 0
+            cuota = objetivo + objetivo2
         Else
-            arreglo = 0
             
             'cuota = Round(monto / (ncuotas + [CUOTAADICIONAL]), 2)
-            cuota = Round(monto / (ncuotas), 2)
+            cuota = Round((monto - [CAPITALFIJOPAGADO]) / ([TOTALCUOTAS] - [areaFija] - [areaFija2]), 2)
             
             ajuste = 1
             'For i = 2 To Len(CStr(Round(monto, 0)))
@@ -61,8 +63,9 @@ Private Sub btAjustar_Click()
             End If
         End If
     End If
-    
-    arreglo = -(objetivo - arreglo)
+    If objetivo <> 0 Then
+        arreglo = -(objetivo - arreglo)
+    End If
     'Hoja1.ScrollArea = "A1:W" & 15 + Me.Range(ncuotas).Value
 End Sub
 
