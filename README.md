@@ -11,32 +11,36 @@ Se marca el relleno en Naranja en caso se encuentre una validacion incorrecta y 
  - Gracia Parcial:  Paga Intereses + Gastos
  - Prepago: Mismo comportamiento que regular pero no corre la cantidad de cuotas
 
-***Columna B - Cantidad Cuotas Gracia Total***
+***Columna B:*** Cantidad Cuotas Gracia Total
 
-***Columna C - Fijar Cuota***
+***Columna C:*** Fijar Cuota
 
-***Columna D - Fijar Intereses:***
- No afecta intereses acumulados
+***Columna D:*** Fijar Intereses
+
+No afecta intereses acumulados
 
 ***Columna E - Fijar Fecha***
 
 ***Rango L1:Y2:***
 Para definir cuotas dobles por mes
 
-***Celda N6: Fecha desembolso***
+***Celda N6:*** Fecha desembolso
 
-***Celda N7: Dia de pago***
+***Celda N7:*** Dia de pago
 
-***Celda N8: Monto desembolsado***
+***Celda N8:*** Monto desembolsado
 
 ***CheckBox Mes adicional:***
 Para correr un mes adicional en la primera cuota
 
-***Celda N8: Monto desembolsado***
+***Celda N8:***
+Monto desembolsado
 
-***Celda Q6: Numero de cuotas Original***
+***Celda Q6:***
+Numero de cuotas Original
 
-***Celda Q7: Numero de cuotas Adicionales***
+***Celda Q7:***
+Numero de cuotas Adicionales
 
 Se usa en caso se halla otorgado periodos de gracia post-desembolso o prepagos (valor negativo para prepagos)
 
