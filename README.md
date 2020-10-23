@@ -1,5 +1,6 @@
 
 **Cronograma de Pagos**
+
 Las celdas en Color Verde son las que generalmente se deben modifican.
 En caso Gracia Total, los gastos se duplican hasta cancelar lo pendiente, modificacion manual solo necesario si no tiene mas cuotas pendientes de pago.
 Se marca el relleno en Naranja en caso se encuentre una validacion incorrecta y en Rojo en caso Valor Negativo en celdas importantes
