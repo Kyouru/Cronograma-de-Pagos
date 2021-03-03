@@ -17,14 +17,15 @@ Private Sub btAjustar_Click()
     Set ncuotas = Me.Range("NCUOTAS")
         
     If objetivo <> 0 Then
-        arreglo = 0
         If [TOTALCUOTAS] - [areaFija] - [areaFija2] = 1 Then
+            arreglo = 0
             cuota = 0
             cuota = objetivo + objetivo2
         Else
+            arreglo = 0
             
             'cuota = Round(monto / (ncuotas + [CUOTAADICIONAL]), 2)
-            cuota = Round((monto - [CAPITALFIJOPAGADO]) / ([TOTALCUOTAS] - [areaFija] - [areaFija2]), 2)
+            cuota = Round((monto - [CAPITALFIJOPAGADO]) / ([TOTALCUOTAS] - [areaFija] - [areaFija2] + [NPREPAGO]), 2)
             
             ajuste = 1
             'For i = 2 To Len(CStr(Round(monto, 0)))
