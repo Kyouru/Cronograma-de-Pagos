@@ -15,7 +15,8 @@ Automaticamente se cambia el relleno en Naranja en caso se encuentre una adverte
 
 ***Columna C:*** Fijar Cuota
 
-***Columna D:*** Fijar Intereses
+***Columna D:*** Fijar Intereses. 
+
 Nota: No afecta intereses acumulados
 
 ***Columna E - Fijar Fecha***
@@ -51,4 +52,4 @@ Tiene vinculada una macro que intenta ajustar la cuota a fuerza bruta.
 ***Boton Exportar .csv***
 
 Genera un .csv con el formato aceptado por SISGO.
-Lo muestra en pantalla, lo guarda en la carpeta "C:\Cronogramas\" y con el nombre de la fecha y hora actual (YYYYMMDD-HHmmss).
+Lo muestra en pantalla y lo guarda en la carpeta "C:\Cronogramas\", el nombre del .csv con el formato YYYYMMDD-HHmmss (HOY).
