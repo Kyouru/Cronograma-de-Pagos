@@ -27,6 +27,7 @@ Sub GenerarCSV()
     wb.Sheets(1).Range("I1").Value = 9
     wb.Sheets(1).Range("J1").Value = 10
     wb.Sheets(1).Range("K1").Value = 11
+    wb.Sheets(1).Range("L1").Value = 12
     
     wb.Sheets(1).Range("A2").Value = "Cuotas"
     wb.Sheets(1).Range("B2").Value = "Fecha"
@@ -37,8 +38,9 @@ Sub GenerarCSV()
     wb.Sheets(1).Range("G2").Value = "Interes"
     wb.Sheets(1).Range("H2").Value = "Seguro Des."
     wb.Sheets(1).Range("I2").Value = "Seg.Bien"
-    wb.Sheets(1).Range("J2").Value = "Apor."
-    wb.Sheets(1).Range("K2").Value = "SaldoFinal"
+    wb.Sheets(1).Range("J2").Value = "Serv.Ad."
+    wb.Sheets(1).Range("K2").Value = "Apor."
+    wb.Sheets(1).Range("L2").Value = "SaldoFinal"
     
     Hoja1.Range(Hoja1.Cells(Hoja1.Range("INICIO_REF").Row, Hoja1.Range("INICIO_REF").Column), Hoja1.Cells(i, Hoja1.Range("FIN_REF").Column)).Copy
     wb.Sheets(1).Range("A3").PasteSpecial xlPasteValues
